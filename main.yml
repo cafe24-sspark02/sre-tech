@@ -1,0 +1,10 @@
+---
+- name: Determine OS and execute appropriate tasks
+  hosts: install
+  gater_facts: yes
+  tasks:
+    - name: Gather facts about the hosts
+      setup:
+
+    - name: Include tasks based on OS version
+      include_tasks: "init{{ ansible_facts['distribution_major_version'] }}.yml"
